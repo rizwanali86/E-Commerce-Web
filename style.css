@@ -1112,13 +1112,23 @@ iframe {
 
 @media (max-width: 500px) {
     .head {
-        display: none;
+        /* display: none; */
     }
     .top-txt .head p,
     .top-txt .head a {
         font-size: 10px;
     }
-    .home_txt h2,
+
+    .collectio{
+        top: 10%;
+    }
+    
+    .home_txt h2 {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 10px;
+    }
+
     .home_txt .home_label p {
         display: none;
     }
@@ -1137,7 +1147,7 @@ iframe {
     }
     .home_txt .home_social_icons {
         /* display: flex; */
-        display: none;
+        /* display: none; */
     }
     .menu-items {
         margin-right: 0;

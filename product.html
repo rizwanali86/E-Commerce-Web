@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Now - Male Fashion Store</title>
+  <style>
+    /* --- Global Reset --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* --- Form Container --- */
+    .buy-form {
+      background: #fff;
+      width: 100%;
+      max-width: 480px;
+      padding: 30px 25px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .buy-form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .buy-form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      color: #111;
+      font-weight: 600;
+    }
+
+    /* --- Input Fields --- */
+    .buy-form label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    .buy-form input,
+    .buy-form select,
+    .buy-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.2s ease-in-out;
+    }
+
+    .buy-form input:focus,
+    .buy-form select:focus,
+    .buy-form textarea:focus {
+      border-color: #000;
+    }
+
+    .buy-form textarea {
+      resize: none;
+      min-height: 80px;
+    }
+
+    /* --- Buttons --- */
+    .buy-form .btn {
+      width: 100%;
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .buy-form .btn:hover {
+      background: #333;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .buy-form {
+        max-width: 95%;
+        padding: 25px 20px;
+      }
+
+      .buy-form h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .buy-form {
+        padding: 20px 15px;
+      }
+
+      .buy-form h2 {
+        font-size: 1.4rem;
+      }
+
+      .buy-form input,
+      .buy-form select,
+      .buy-form textarea {
+        font-size: 0.9rem;
+      }
+
+      .buy-form .btn {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="buy-form">
+    <h2>Buy Now - Male Fashion Store</h2>
+
+    <form id="orderForm">
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="Enter your name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Enter your email" required>
+
+      <label>Mobile Number</label>
+      <input type="tel" name="mobile" placeholder="03XXXXXXXXX" required>
+
+      <label>Address</label>
+      <textarea name="address" placeholder="Enter full address" required></textarea>
+
+      <label>Product Size</label>
+      <select name="size" required>
+        <option value="">Select size</option>
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+        <option>XL</option>
+      </select>
+
+      <label>Payment Method</label>
+      <select name="payment" id="paymentMethod" required>
+        <option value="">Select Payment</option>
+        <option value="cod">Cash on Delivery</option>
+        <option value="online">Online Payment</option>
+      </select>
+
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      if (data.payment === "cod") {
+        alert("🎉 Thank you " + data.name + "! Your order has been placed (Cash on Delivery).");
+      } else {
+        // Replace with your PayFast or Easypaisa checkout link later
+        alert("Redirecting to payment gateway...");
+        window.location.href = "https://ipg1.payfast.pk/"; 
+      }
+    });
+  </script>
+</body>
+</html>
